@@ -2,24 +2,32 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
 		<title>Attendance SMS Notification</title>
 		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/style_success.css">
 		<link rel="stylesheet" href="css/chosen.min.css">
 		<script src="js/message.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+		<script language="JavaScript" type="text/javascript">
+			window.history.forward();	
+		</script>
 	</head>
 	<body>
-		<form method="get" name="iAttendForm" action="login.html">
+		<form method="get" name="iAttendForm" action="SMSLogoutServlet">
 			<div class="login-form" id="iAttendId" >
 
-				 
 				<h1>SUCCESS</h1>
 				<h1>SMS has been sent to the Respective Parent</h1>
-				
-			 <div class="form-group log-status" id="button-id">
-					<center><input type="submit" class="log-btn" width="400%" value="LOGIN PAGE"></center>
+
+				<div class="form-group log-status" id="button-id">
+					<center>
+						<input type="submit" class="log-btn" width="400%" value="LOG-OUT" />
+						<input type="button" class="log-btn" width="400%" value="SMS PAGE" onclick="window.location.href='index.html'" /> 
+					</center>
 				</div>
 			</div>
 		</form>

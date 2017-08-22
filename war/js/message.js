@@ -20,7 +20,7 @@ function messageText() {
 			subjects += selObj.options[i].value + "\n";
 		}
 	}
-	var messageContent = "Dear Parent,\n\n" + "Your " + gender + "," + firstName + " " + lastName + " is facing a shortage in attendance for the academic year " + now + " in the following subjects:\n\n" + subjects + "\nPlease visit our college and meet the concerned teaching faculty as soon as possible.\n\n" + "Thanks,\n" + college;
+	var messageContent = "Dear Parent,\n\n" + "Your " + gender + "," + firstName + " " + lastName + " is facing a shortage in attendance for this academic year in the following subjects:\n\n" + subjects + "\nPlease visit our college and meet the concerned teaching faculty as soon as possible.\n\n" + "Thanks,\n" + college;
 	var messageId = document.getElementById("message");
 	messageId.value = messageContent;
 	// messageId.value = "This is a Test Message";
@@ -33,3 +33,5 @@ document.addEventListener('DOMContentLoaded', function() {
 		btn.addEventListener('click', message);
 	}
 });
+
+ 

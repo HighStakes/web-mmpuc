@@ -29,4 +29,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <servlet-name>SMSLoginServlet</servlet-name>
     <url-pattern>/SMSLoginServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>SMSLogoutServlet</display-name>
+    <servlet-name>SMSLogoutServlet</servlet-name>
+    <servlet-class>com.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SMSLogoutServlet</servlet-name>
+    <url-pattern>/SMSLogoutServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

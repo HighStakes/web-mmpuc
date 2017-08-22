@@ -39,11 +39,11 @@ public class LoginServlet extends HttpServlet {
 		boolean isUser = false;
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		Entity login = new Entity("Login", 1);
-		login.setProperty("LoginId", 1);
-		login.setProperty("username", username);
-		login.setProperty("password", password);
-		ds.put(login);
+//		Entity login = new Entity("Login", 1);
+//		login.setProperty("LoginId", 1);
+//		login.setProperty("username", username);
+//		login.setProperty("password", password);
+//		ds.put(login);
 		Query query = new Query("Login");
 
 		PreparedQuery pQuery = ds.prepare(query);

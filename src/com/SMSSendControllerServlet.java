@@ -1,6 +1,12 @@
 package com;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +49,8 @@ public class SMSSendControllerServlet extends HttpServlet {
 			String lname = req.getParameter("lname");
 			String contact = req.getParameter("contact");
 			String gender = req.getParameter("gender");
-			System.out.println("GENDER :" + gender);
+			String message = req.getParameter("message");
+			
 			String allSubjects = "";
 			String[] subjects = req.getParameterValues("subjects");
 
@@ -72,6 +79,7 @@ public class SMSSendControllerServlet extends HttpServlet {
 			student.setProperty("subjects", allSubjects);
 
 			dataStore.put(student);
+			sendMessage(fname+" "+lname,contact,message);
 			requestDispatcher = getServletContext().getRequestDispatcher("/Success.html");
 			requestDispatcher.forward(req, res);
 		} catch (Exception e) {
@@ -79,6 +87,35 @@ public class SMSSendControllerServlet extends HttpServlet {
 			System.out.println("Message:" + e.getMessage());
 		}
 
+	}
+	
+	public static void sendMessage(String pname, String contact, String message) {
+		try {
+			message = URLEncoder.encode(message,"UTF-8");
+			contact = contact.trim();
+			String gupshupURL = "http://enterprise.smsgupshup.com/GatewayAPI/rest?method=SendMessage&send_to="+contact+"&msg="+message+"&msg_type=TEXT&userid=2000164615&auth_scheme=plain&password=b9gXWd&v=1.1&format=text";
+			URL url = new URL(gupshupURL.trim());
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			conn.setUseCaches(false);
+			conn.connect();
+			System.out.println("URL Finally :" + url);
+			BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			String line;
+			StringBuffer buffer = new StringBuffer();
+			while ((line = rd.readLine()) != null) {
+				buffer.append(line).append("\n");
+			}
+			System.out.println(buffer.toString());
+			rd.close();
+			conn.disconnect();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
