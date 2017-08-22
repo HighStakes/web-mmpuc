@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 			user = e.getProperty("username").toString();
 			pwd = e.getProperty("password").toString();
 			if (user.equals(username) && pwd.equals(password)) {
+				System.out.println("RIGHT LOGIN");
 				isUser = true;
 				requestDispatcher = getServletContext().getRequestDispatcher("/index.html");
 				requestDispatcher.forward(req, res);
