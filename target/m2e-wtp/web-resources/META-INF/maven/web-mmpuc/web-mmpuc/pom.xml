@@ -12,7 +12,7 @@
 		<servlet.version>2.5</servlet.version>
 		<hibernate.version>4.2.21.Final</hibernate.version>
 		<appengine.app.appId>web-mmpuc</appengine.app.appId>
-		<appengine.app.version>1</appengine.app.version>
+		<appengine.app.version>8</appengine.app.version>
 		<appengine.target.version>1.9.54</appengine.target.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- <cloudsql.url>jdbc:google:mysql://ams-gae-web:us-central1:ams-gae-web/iAttend?user=root</cloudsql.url> 
